@@ -723,56 +723,6 @@ function zenGetDefaultShortcuts() {
     )
   );
 
-  // Added by gunir
-  // Prev Tab Ctrl+Left
-  newShortcutList.push(
-    new KeyShortcut(
-      'zen-previous-tab',
-      'VK_LEFT',
-      '',
-      ZEN_OTHER_SHORTCUTS_GROUP,
-      KeyShortcutModifiers.fromObject({ accel: true }),
-      "code:gBrowser.tabContainer.advanceSelectedTab(-1, true);",
-      'zen-shortcut-previous-tab'
-    )
-  );
-  // Next Tab Ctrl+Right
-  newShortcutList.push(
-    new KeyShortcut(
-      'zen-next-tab',
-      'VK_RIGHT',
-      '',
-      ZEN_OTHER_SHORTCUTS_GROUP,
-      KeyShortcutModifiers.fromObject({ accel: true }),
-      "code:gBrowser.tabContainer.advanceSelectedTab(1, true);",
-      'zen-shortcut-next-tab'
-    )
-  );
-  // Open Settings
-  newShortcutList.push(
-    new KeyShortcut(
-      'zen-open-settings',
-      ',',
-      '',
-      ZEN_OTHER_SHORTCUTS_GROUP,
-      KeyShortcutModifiers.fromObject({ accel: true }),
-      "code:openPreferences(undefined);",
-      'zen-shortcut-open-settings'
-    )
-  );
-  // Open CKS Settings
-  newShortcutList.push(
-    new KeyShortcut(
-      'zen-cks-settings',
-      '/',
-      '',
-      ZEN_OTHER_SHORTCUTS_GROUP,
-      KeyShortcutModifiers.fromObject({ accel: true }),
-      "code:openPreferences('paneZenCKS');",
-      'zen-shortcut-cks-settings'
-    )
-  );
-
 
 
 
@@ -782,7 +732,7 @@ function zenGetDefaultShortcuts() {
 }
 
 class ZenKeyboardShortcutsVersioner {
-  static LATEST_KBS_VERSION = 3;
+  static LATEST_KBS_VERSION = 4;
 
   constructor() {}
 
@@ -881,6 +831,29 @@ class ZenKeyboardShortcutsVersioner {
         }
       }
     }
+    data.push(
+      // Added by gunir
+      // Prev Tab Ctrl+Left
+      new KeyShortcut(
+        'zen-previous-tab',
+        'VK_LEFT',
+        '',
+        ZEN_OTHER_SHORTCUTS_GROUP,
+        KeyShortcutModifiers.fromObject({ accel: true }),
+        "code:gBrowser.tabContainer.advanceSelectedTab(-1, true);",
+        'zen-shortcut-previous-tab'
+      ),
+      // Next Tab Ctrl+Right
+      new KeyShortcut(
+        'zen-next-tab',
+        'VK_RIGHT',
+        '',
+        ZEN_OTHER_SHORTCUTS_GROUP,
+        KeyShortcutModifiers.fromObject({ accel: true }),
+        "code:gBrowser.tabContainer.advanceSelectedTab(1, true);",
+        'zen-shortcut-next-tab'
+      )
+    );
     return data;
   }
 }
