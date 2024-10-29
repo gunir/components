@@ -567,20 +567,6 @@ function zenGetDefaultShortcuts() {
     newShortcutList.push(parsed);
   }
 
-  // Explain: How to add shortcuts
-  /*
-  newShortcutList.push(
-    new KeyShortcut(
-      'ID_OF_SHORTCUT',
-      'KEYCODE',
-      '',
-      GROUP_OF_SHORTCUT,
-      KeyShortcutModifiers.fromObject({ accel: true, alt: true }), //accel = Ctrl/Cmd, Alt = Alt/Option
-      'code:NATIVE_CODE_FUNCTION()',
-      'L10N_STRING_FOR_TRANSLATION'
-    )
-  );
-  */
   // Compact mode's keyset
   newShortcutList.push(
     new KeyShortcut(
@@ -787,6 +773,18 @@ class ZenKeyboardShortcutsVersioner {
   }
 
   migrate(data, version) {
+    // Explain: How to add shortcuts
+    /*
+      new KeyShortcut(
+        'ID_OF_SHORTCUT',
+        'KEYCODE',
+        '',
+        GROUP_OF_SHORTCUT,
+        KeyShortcutModifiers.fromObject({ accel: true, alt: true }), //accel = Ctrl/Cmd, Alt = Alt/Option
+        'code:NATIVE_CODE_FUNCTION()',
+        'L10N_STRING_FOR_TRANSLATION'
+      )
+    */
     if (version < 1) {
       // Migrate from 0 to 1
       // Here, we do a complet reset of the shortcuts,
