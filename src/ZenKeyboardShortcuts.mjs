@@ -751,13 +751,25 @@ function zenGetDefaultShortcuts() {
   // Open Settings
   newShortcutList.push(
     new KeyShortcut(
-      'zen-next-tab',
+      'zen-open-settings',
       ',',
       '',
       ZEN_OTHER_SHORTCUTS_GROUP,
       KeyShortcutModifiers.fromObject({ accel: true }),
-      "code:gBrowser.tabContainer.advanceSelectedTab(1, true);",
-      'zen-shortcut-next-tab'
+      "code:openPreferences(undefined);",
+      'zen-shortcut-open-settings'
+    )
+  );
+  // Open CKS Settings
+  newShortcutList.push(
+    new KeyShortcut(
+      'zen-cks-settings',
+      '/',
+      '',
+      ZEN_OTHER_SHORTCUTS_GROUP,
+      KeyShortcutModifiers.fromObject({ accel: true }),
+      "code:openPreferences('paneZenCKS');",
+      'zen-shortcut-cks-settings'
     )
   );
 
