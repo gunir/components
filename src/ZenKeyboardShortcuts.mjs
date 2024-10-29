@@ -567,6 +567,20 @@ function zenGetDefaultShortcuts() {
     newShortcutList.push(parsed);
   }
 
+  // Explain: How to add shortcuts
+  /*
+  newShortcutList.push(
+    new KeyShortcut(
+      'ID_OF_SHORTCUT',
+      'KEYCODE',
+      '',
+      GROUP_OF_SHORTCUT,
+      KeyShortcutModifiers.fromObject({ accel: true, alt: true }), //accel = Ctrl/Cmd, Alt = Alt/Option
+      'code:NATIVE_CODE_FUNCTION()',
+      'L10N_STRING_FOR_TRANSLATION'
+    )
+  );
+  */
   // Compact mode's keyset
   newShortcutList.push(
     new KeyShortcut(
@@ -708,6 +722,49 @@ function zenGetDefaultShortcuts() {
       'zen-split-view-shortcut-unsplit'
     )
   );
+
+  // Added by gunir
+  // Prev Tab Ctrl+Left
+  newShortcutList.push(
+    new KeyShortcut(
+      'zen-previous-tab',
+      'VK_LEFT',
+      '',
+      ZEN_OTHER_SHORTCUTS_GROUP,
+      KeyShortcutModifiers.fromObject({ accel: true }),
+      "code:gBrowser.tabContainer.advanceSelectedTab(-1, true);",
+      'zen-shortcut-previous-tab'
+    )
+  );
+  // Next Tab Ctrl+Right
+  newShortcutList.push(
+    new KeyShortcut(
+      'zen-next-tab',
+      'VK_RIGHT',
+      '',
+      ZEN_OTHER_SHORTCUTS_GROUP,
+      KeyShortcutModifiers.fromObject({ accel: true }),
+      "code:gBrowser.tabContainer.advanceSelectedTab(1, true);",
+      'zen-shortcut-next-tab'
+    )
+  );
+  // Open Settings
+  newShortcutList.push(
+    new KeyShortcut(
+      'zen-next-tab',
+      ',',
+      '',
+      ZEN_OTHER_SHORTCUTS_GROUP,
+      KeyShortcutModifiers.fromObject({ accel: true }),
+      "code:gBrowser.tabContainer.advanceSelectedTab(1, true);",
+      'zen-shortcut-next-tab'
+    )
+  );
+
+
+
+
+
 
   return newShortcutList;
 }
